@@ -34,6 +34,9 @@
 - 1.19, 1.19.1, 1.19.2, 1.19.3
 - 1.20, 1.20.1
 
+# Interested in developing this resource?
+Contact us with ticket on our Discord Server!
+
 ---
 
 <p align="center">
