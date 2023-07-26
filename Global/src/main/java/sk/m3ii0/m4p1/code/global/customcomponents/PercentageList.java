@@ -1,105 +1,123 @@
-package sk.m3ii0.m4p1.code.global.objects;
+package sk.m3ii0.m4p1.code.global.customcomponents;
 
 import sk.m3ii0.m4p1.code.global.utils.MathUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Objects;
 
-public class PercentageList<T> implements Map<Double, List<T>> {
+public class PercentageList<V> {
+	private final List<Entry<V, Double>> entries = new ArrayList<>();
+	private double totalChance;
 	
-	private final Map<Double, List<T>> items = new HashMap<>();
-	
-	public PercentageList() {}
-	
-	public T pickRandom() {
-		double percentage = MathUtils.generateRandomDouble(0, 100);
-		int size = size();
-		
-	}
-	
-	private List<Entry<Double, List<T>>> getCopy(double number) {
-		List<Entry<Double, List<T>>> result = new ArrayList<>();
-		for (Entry<Double, List<T>> entry : items.entrySet()) {
-			if (entry.getKey() <= number) {
-				result.add(entry);
-			}
-		}
-		return result;
-	}
-	
-	@Override
-	public int size() {
-		int size = 0;
-		for (List<T> vars : items.values()) {
-			size += vars.size();
-		}
-		return size;
-	}
-	
-	@Override
 	public boolean isEmpty() {
-		return items.isEmpty();
+		return entries.isEmpty();
 	}
 	
-	@Override
-	public boolean containsKey(Object key) {
-		return items.containsKey(key);
+	public boolean contains(V object) {
+		for (Entry<V, Double> entry : entries)
+			if (Objects.equals(entry.getKey(), object))
+				return true;
+		return false;
 	}
 	
-	@Override
-	public boolean containsValue(Object value) {
-		for (List<T> vars : items.values()) {
-			for (T var : vars) {
-				if (var.equals(value)) return true;
+	public boolean add(V object, double chance) {
+		if (chance <= 0)
+			throw new IllegalArgumentException("Chance must be greater than 0");
+		for (Entry<V, Double> entry : entries)
+			if (Objects.equals(entry.getKey(), object)) {
+				totalChance -= entry.setValue(chance);
+				totalChance += chance;
+				return true;
+			}
+		entries.add(new Entry<V, Double>() {
+			
+			double privateChance = chance;
+			
+			@Override
+			public V getKey() {
+				return object;
+			}
+			
+			@Override
+			public Double getValue() {
+				return privateChance;
+			}
+			
+			@Override
+			public Double setValue(Double value) {
+				double prev = privateChance;
+				privateChance = value;
+				return prev;
+			}
+		});
+		totalChance += chance;
+		return true;
+	}
+	
+	public boolean remove(V object) {
+		Iterator<Entry<V, Double>> itr = entries.iterator();
+		while (itr.hasNext()) {
+			Entry<V, Double> entry = itr.next();
+			if (Objects.equals(entry.getKey(), object)) {
+				itr.remove();
+				return true;
 			}
 		}
 		return false;
 	}
 	
-	@Override
-	public List<T> get(Object key) {
-		return items.get(key);
+	public int size() {
+		return entries.size();
 	}
 	
-	@Override
-	public List<T> put(Double key, List<T> value) {
-		List<T> vars = items.getOrDefault(key, new ArrayList<>());
-		vars.addAll(value);
-		items.put(key, vars);
-		return vars;
+	public double getChance(V object) {
+		for (Entry<V, Double> entry : entries)
+			if (Objects.equals(entry.getKey(), object))
+				return entry.getValue();
+		return 0;
 	}
 	
-	@Override
-	public List<T> remove(Object key) {
-		return items.remove(key);
-	}
-	
-	@Override
-	public void putAll(Map<? extends Double, ? extends List<T>> m) {
-		for (double var : m.keySet()) {
-			List<T> vars = items.getOrDefault(var, new ArrayList<>());
-			vars.addAll(m.get(var));
-			items.put(var, vars);
-		}
-	}
-	
-	@Override
 	public void clear() {
-		items.clear();
+		entries.clear();
+		totalChance = 0;
 	}
 	
-	@Override
-	public Set<Double> keySet() {
-		return items.keySet();
+	public List<V> keySet() {
+		List<V> keys = new ArrayList<>(entries.size());
+		for (Entry<V, Double> entry : entries)
+			keys.add(entry.getKey());
+		return keys;
 	}
 	
-	@Override
-	public Collection<List<T>> values() {
-		return items.values();
+	public List<Double> values() {
+		List<Double> chances = new ArrayList<>(entries.size());
+		for (Entry<V, Double> entry : entries)
+			chances.add(entry.getValue());
+		return chances;
 	}
 	
-	@Override
-	public Set<Entry<Double, List<T>>> entrySet() {
-		return items.entrySet();
+	public List<Entry<V, Double>> entrySet() {
+		return entries;
+	}
+	
+	public V getRandom() {
+		if (isEmpty())
+			return null;
+		if (entries.size() == 1)
+			return entries.get(0).getKey();
+		
+		double random = MathUtils.generateRandomDouble(totalChance);
+		double value = 0.0;
+		for (Entry<V, Double> entry : entries) {
+			double upperBound = value + entry.getValue();
+			if (random <= upperBound)
+				return entry.getKey();
+			value = upperBound;
+		}
+		return entries.get(entries.size() - 1).getKey();
 	}
 	
 }
