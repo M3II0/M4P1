@@ -1,14 +1,28 @@
 package sk.m3ii0.m4p1.code.global.utils;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ObjectUtils {
 	
 	protected ObjectUtils() throws IllegalAccessException {
 		throw new IllegalAccessException("You cannot create new instance of this class!");
+	}
+	
+	public static <U> List<U> list(U... values) {
+		return new ArrayList<>(Arrays.asList(values));
+	}
+	
+	public static <U> U[] array(U... values) {
+		return values;
+	}
+	
+	public static <U, V> Map<U, V> from(Map.Entry<U, V>... entries) {
+		Map<U,V> map = new HashMap<>();
+		for (Map.Entry<U,V> var : entries) {
+			map.put(var.getKey(), var.getValue());
+		}
+		return map;
 	}
 	
 	public static <U> U[] addToArray(U[] first, U... second) {

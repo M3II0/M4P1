@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bfe744c-c4db-4969-a03c-3451f99eee37" name="Changes" comment="- Added things">
-      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/Animation.java" afterDir="false" />
+    <list default="true" id="5bfe744c-c4db-4969-a03c-3451f99eee37" name="Changes" comment="- Added Animation.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/utils/ObjectUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/utils/ObjectUtils.java" afterDir="false" />
@@ -84,11 +83,19 @@
       <option name="project" value="LOCAL" />
       <updated>1690401234814</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Added Animation.java">
+      <created>1690678209118</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690678209118</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Added things" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added things" />
+    <MESSAGE value="- Added Animation.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added Animation.java" />
   </component>
 </project>
