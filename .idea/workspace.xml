@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bfe744c-c4db-4969-a03c-3451f99eee37" name="Changes" comment="- Added some things">
-      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/AnimatedTextCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/DelayManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/interfaces/FramesBuilder.java" afterDir="false" />
+    <list default="true" id="5bfe744c-c4db-4969-a03c-3451f99eee37" name="Changes" comment="- Added AnimatedTextCreator.java&#10;- Added DelayManager.java&#10;- Added FramesBuilder.java">
+      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/enums/AnimationTiming.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/utils/RefUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/AnimatedTextCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/AnimatedTextCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Global/src/main/java/sk/m3ii0/m4p1/code/global/customcomponents/Animation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -44,19 +45,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/mello/IdeaProjects/M4P1",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.43908045",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mello/IdeaProjects/M4P1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.43908045&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mello\IdeaProjects\M4P1\libs" />
@@ -100,13 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690739816046</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- Added AnimatedTextCreator.java&#10;- Added DelayManager.java&#10;- Added FramesBuilder.java">
+      <created>1691007741767</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691007741767</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- Added things" />
     <MESSAGE value="- Added Animation.java" />
     <MESSAGE value="- Added some things" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added some things" />
+    <MESSAGE value="- Added AnimatedTextCreator.java&#10;- Added DelayManager.java&#10;- Added FramesBuilder.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added AnimatedTextCreator.java&#10;- Added DelayManager.java&#10;- Added FramesBuilder.java" />
   </component>
 </project>

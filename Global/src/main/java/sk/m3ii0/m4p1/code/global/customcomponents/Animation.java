@@ -1,30 +1,68 @@
 package sk.m3ii0.m4p1.code.global.customcomponents;
 
+import sk.m3ii0.m4p1.code.global.customcomponents.enums.AnimationTiming;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Animation <U> {
 	
 	private final int delay;
+	private final boolean repeat;
 	private final List<U> objects = new ArrayList<>();
 	private int currentFrame;
 	private long lastUpdate;
+	private final AnimationTiming timing;
 	
 	public Animation(int delay) {
+		this(delay, AnimationTiming.SYSTEM_MILLIS, true);
+	}
+	
+	public Animation(int delay, boolean repeat) {
+		this(delay, AnimationTiming.SYSTEM_MILLIS, true);
+	}
+	
+	public Animation(int delay, AnimationTiming timing) {
+		this(delay, timing, true);
+	}
+	
+	public Animation(int delay, AnimationTiming timing, boolean repeat) {
 		this.delay = delay;
+		this.timing = timing;
+		this.repeat = repeat;
 	}
 	
 	public U getNextFrame() {
 		long current = System.currentTimeMillis();
 		U value;
-		if (lastUpdate == 0L) {
-			currentFrame = 0;
-		} else {
-			long difference = current - lastUpdate;
-			int frames = (int) (difference/delay);
-			currentFrame += frames;
-			if (currentFrame >= size()) {
-				currentFrame = currentFrame-size();
+		if (timing == AnimationTiming.SYSTEM_MILLIS) {
+			if (lastUpdate == 0L) {
+				currentFrame = 0;
+			} else {
+				long difference = current - lastUpdate;
+				int frames = (int) (difference/delay);
+				currentFrame += frames;
+				if (currentFrame >= size()) {
+					if (repeat) {
+						currentFrame = currentFrame-size();
+					} else {
+						currentFrame = size()-1;
+					}
+				}
+			}
+		}
+		if (timing == AnimationTiming.TAKEN_FRAMES) {
+			if (lastUpdate == 0L) {
+				currentFrame = 0;
+			} else {
+				currentFrame += 1;
+				if (currentFrame >= size()) {
+					if (repeat) {
+						currentFrame = 0;
+					} else {
+						currentFrame = size()-1;
+					}
+				}
 			}
 		}
 		value = safePick(currentFrame);
